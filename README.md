@@ -15,9 +15,9 @@ The following Ansible variables must be set, for example within the host variabl
 
 Included is an example host configuration: host_vars.example
 
-### Installing
+### Deployment
 
-To run the playbook run the following command:
+To deploy the script run the playbook with the following command:
 
 ```
 ansible-playbook -i hosts/example stamp.yml
