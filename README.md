@@ -10,7 +10,8 @@ A simple service to print the system hostname and current timestamp to an output
 The following Ansible variables must be set, for example within the host variables, to sucessfully deploy the Ansible playbook:
 
 * stamp_bindir - The directory of the service executable (For example: "/tmp")
-* stamp_logdir - The directory of the service log outpur (For example: "/var/log/stamp")
+* stamp_logdir - The directory of the service log output (For example: "/var/log/stamp")
+* stamp_log - The log filename (For example: "stamp.log")
 * stamp_schedule - The schedule for logging output in minutes (For example "5")
 
 Included is an example host configuration: host_vars.example
