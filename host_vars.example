@@ -4,5 +4,7 @@
 stamp_bindir: "/tmp"
 # Stamp: Log Directory
 stamp_logdir: "/tmp"
+# Stamp: Log File
+stamp_log: "stamp.log"
 # Stamp: Schedule (Minutes)
 stamp_schedule: "5"
