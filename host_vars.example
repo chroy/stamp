@@ -1,0 +1,8 @@
+# host_vars/host.exmaple.com
+---
+# Stamp: Bin Directory
+stamp_bindir: "/tmp"
+# Stamp: Log Directory
+stamp_logdir: "/tmp"
+# Stamp: Schedule (Minutes)
+stamp_schedule: "5"
