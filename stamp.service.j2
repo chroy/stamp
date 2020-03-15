@@ -1,0 +1,14 @@
+[Unit]
+Description=Host Log Scheduler
+After=network.target
+ 
+[Service]
+Type=simple
+User=user
+Restart=on-failure
+TimeoutStartSec=0
+StartLimitBurst=3
+ExecStart={{ stamp_bindir }}/stamp.sh
+ 
+[Install]
+WantedBy=multi-user.target
