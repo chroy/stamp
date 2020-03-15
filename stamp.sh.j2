@@ -1,0 +1,18 @@
+#!/bin/bash
+ 
+#Set Hostname
+hostname=$(hostname)
+ 
+#Set Schedule
+schedule={{ stamp_schedule }}
+ 
+while true; do
+  #Set Timestamp
+  now=$(date +"%Y-%m-%d %H:%M:%S")
+ 
+  #Write Log
+  echo "${now} ${hostname}" >> {{ stamp_logdir }}/schedule.log
+ 
+  #Sleep
+  sleep $(echo $[${schedule} * 60])
+done
