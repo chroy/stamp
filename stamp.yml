@@ -1,0 +1,40 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+ 
+  - name: Copy stamp.sh
+    template:
+      src: files/stamp/stamp.sh.j2
+      dest: "{{ stamp_logdir }}/stamp.sh"
+      owner: root
+      group: root
+      mode: 0755
+    when: (ansible_distribution == 'CentOS' and ansible_distribution_major_version == '7') or
+          (ansible_distribution == 'Ubuntu' and ansible_distribution_version|int >= 16)
+ 
+  - name: Copy stamp.service
+    template:
+      src: files/stamp/stamp.service.j2
+      dest: /etc/systemd/system/stamp.service
+      owner: root
+      group: root
+      mode: 0644
+    notify:
+      - stamp.service Reload
+    when: (ansible_distribution == 'CentOS' and ansible_distribution_major_version == '7') or
+          (ansible_distribution == 'Ubuntu' and ansible_distribution_version|int >= 16)
+     
+  - name: Start stamp.service with daemon-reload
+    systemd:
+      state: started
+      daemon_reload: yes
+      name: stamp
+    when: (ansible_distribution == 'CentOS' and ansible_distribution_major_version == '7') or
+          (ansible_distribution == 'Ubuntu' and ansible_distribution_version|int >= 16)
+     
+  handlers:
+  - name: stamp.service Reload
+    systemd:
+      state: restarted
+      name: stamp
