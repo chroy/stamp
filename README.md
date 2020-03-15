@@ -13,4 +13,13 @@ The following Ansible variables must be set, for example within the host variabl
 * stamp_logdir - The directory of the service log outpur (For example: "/var/log/stamp")
 * stamp_schedule - The schedule for logging output in minutes (For example "5")
 
-Included is an example host configuration 
+Included is an example host configuration: host_vars.example
+
+### Installing
+
+To run the playbook run the following command:
+
+```
+ansible-playbook -i hosts/example stamp.yml
+```
+
