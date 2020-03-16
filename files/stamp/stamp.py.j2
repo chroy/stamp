@@ -17,7 +17,7 @@ class PythonCornerExample(SMWinservice):
 
     def main(self):
         while self.isrunning:
-            f=open("c:\stamp\stamp.log", "a+")
+            f=open("{{ stamp_win_bindir }}\{{ stamp_log }}", "a+")
             f.write(socket.gethostname() + " " + str(datetime.datetime.now()).split('.')[0] + "\n")
             f.close()
             time.sleep({{ stamp_schedule }} * 60)
