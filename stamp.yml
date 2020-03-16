@@ -6,7 +6,7 @@
   - name: Copy stamp.sh
     template:
       src: files/stamp/stamp.sh.j2
-      dest: "{{ stamp_logdir }}/stamp.sh"
+      dest: "{{ stamp_lin_bindir }}/stamp.sh"
       owner: root
       group: root
       mode: 0755
