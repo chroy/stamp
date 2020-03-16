@@ -1,9 +1,15 @@
 # host_vars/host.exmaple.com
 ---
-# Stamp: Bin Directory
-stamp_bindir: "/tmp"
-# Stamp: Log Directory
-stamp_logdir: "/tmp"
+# Stamp: Linux Bin Directory
+stamp_lin_bindir: "/tmp"
+# Stamp: Linux Log Directory
+stamp_lin_logdir: "/tmp"
+
+# Stamp: Windows Bin Directory
+stamp_win_bindir: "C:\stamp"
+# Stamp: Windows Log Directory
+stamp_win_logdir: "C:\stemp"
+
 # Stamp: Log File
 stamp_log: "stamp.log"
 # Stamp: Schedule (Minutes)
