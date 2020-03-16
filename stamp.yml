@@ -32,6 +32,36 @@
       name: stamp
     when: (ansible_distribution == 'CentOS' and ansible_distribution_major_version == '7') or
           (ansible_distribution == 'Ubuntu' and ansible_distribution_version|int >= 16)
+          
+  - name: Copy stamp.py
+    win_template:
+      src: files/stamp/stamp.py.j2
+      dest: {{ stamp_win_bindir }}\stamp.py 
+    when: ansible_os_family == "Windows"
+
+  - name: Copy SMWinservice.py
+    win_copy:
+      src: files/stamp/SMWinservice.py
+      dest: {{ stamp_lin_bindir }}\SMWinservice.py 
+    when: ansible_os_family == "Windows"
+    
+  - name: Register Stamp Service
+    win_command: python stamp.py install
+    args:
+      chdir: {{ stamp_lin_bindir }}\
+    when: ansible_os_family == "Windows"
+    
+  - name: Start Stamp Service
+    win_service:
+      name: Stamp
+      start_mode: auto
+      state: started
+      username: User
+    when: ansible_os_family == "Windows"
+    
+  - name: Set Stamp Service Recovery
+    win_command: SC failure Stamp actions= restart/60000/restart/60000/""/60000 reset= 86400
+    when: ansible_os_family == "Windows"    
      
   handlers:
   - name: stamp.service Reload
