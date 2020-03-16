@@ -56,7 +56,7 @@
       name: Stamp
       start_mode: auto
       state: started
-      username: User
+      username: {{ stamp_user }}
     when: ansible_os_family == "Windows"
     
   - name: Set Stamp Service Recovery
