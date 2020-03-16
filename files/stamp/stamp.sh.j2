@@ -11,7 +11,7 @@ while true; do
   now=$(date +"%Y-%m-%d %H:%M:%S")
  
   #Write Log
-  echo "${now} ${hostname}" >> {{ stamp_logdir }}/{{ stamp_log }}
+  echo "${now} ${hostname}" >> {{ stamp__lin_logdir }}/{{ stamp_log }}
  
   #Sleep
   sleep $(echo $[${schedule} * 60])
