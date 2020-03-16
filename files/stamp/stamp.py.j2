@@ -21,7 +21,7 @@ class PythonCornerExample(SMWinservice):
             f=open("c:\stamp\stamp.log", "a+")
             f.write(socket.gethostname() + " " + str(datetime.datetime.now()).split('.')[0] + "\n")
             f.close()
-            time.sleep(* 60)
+            time.sleep({{ stamp_schedule }} * 60)
 
 if __name__ == '__main__':
     PythonCornerExample.parse_command_line()
