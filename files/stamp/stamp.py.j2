@@ -16,7 +16,6 @@ class PythonCornerExample(SMWinservice):
         self.isrunning = False
 
     def main(self):
-        i = 0
         while self.isrunning:
             f=open("c:\stamp\stamp.log", "a+")
             f.write(socket.gethostname() + " " + str(datetime.datetime.now()).split('.')[0] + "\n")
