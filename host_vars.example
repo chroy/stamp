@@ -14,3 +14,5 @@ stamp_win_logdir: "C:\stemp"
 stamp_log: "stamp.log"
 # Stamp: Schedule (Minutes)
 stamp_schedule: "5"
+# Stamp: User
+stamp_user: user
