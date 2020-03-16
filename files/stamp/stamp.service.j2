@@ -4,7 +4,7 @@ After=network.target
  
 [Service]
 Type=simple
-User=user
+User={{ stamp_user }}
 Restart=on-failure
 TimeoutStartSec=0
 StartLimitBurst=3
